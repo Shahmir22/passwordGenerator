@@ -21,10 +21,10 @@
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var lowercase = ["a", "b", "c", "d", "e", "f", "g",];
-var uppercase = ["A", "B", "C", "D"];
-var special = ["!", "@", "#", "$"];
-var number = [1, 2, 3, 4, 5];
+var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "~"];
+var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // Function for getting a random element from an array
 function getRandom(array) {
@@ -78,41 +78,31 @@ function generatePassword() {
 
     if (hasLowercase) {
         possibleCharacters = possibleCharacters.concat(lowercase);
-        guaranteedCharacters.push(getRandom(lowercase));
+        // guaranteedCharacters.push(getRandom(lowercase));
     }
 
     if (hasUppercase) {
         possibleCharacters = possibleCharacters.concat(uppercase);
-        guaranteedCharacters.push(getRandom(uppercase));
+        // guaranteedCharacters.push(getRandom(uppercase));
     }
 
     if (hasSpecial) {
         possibleCharacters = possibleCharacters.concat(special);
-        guaranteedCharacters.push(getRandom(special));
+        //guaranteedCharacters.push(getRandom(special));
     }
 
     if (hasNumber) {
         possibleCharacters = possibleCharacters.concat(number);
-        guaranteedCharacters.push(getRandom(number));
+        // guaranteedCharacters.push(number);
     }
-
-    console.log(possibleCharacters);
 
     for (var i = 0; i < length; i++) {
-        var possibleCharacter = getRandom(possibleCharacters);
-        result.push(possibleCharacter);
+        var mixer = Math.floor(Math.random() * possibleCharacters.length);
+        guaranteedCharacters = guaranteedCharacters + possibleCharacters[mixer];
+
+
     }
-
-    console.log(result);
-
-    // for (var) {
-
-
-    // }
-    //make a for loop to replace first possible character in results with guaranteed characters
-
-    //transform your result into string and [*return*] it to the user
-
+    return guaranteedCharacters;
 }
 
 // Add event listener to generate button
